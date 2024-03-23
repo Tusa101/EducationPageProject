@@ -1,0 +1,6 @@
+@EducationPageWebAPI_HostAddress = http://localhost:5222
+
+GET {{EducationPageWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

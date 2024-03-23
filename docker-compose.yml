@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  educationpagemvc:
+    image: ${DOCKER_REGISTRY-}educationpagemvc
+    build:
+      context: .
+      dockerfile: EducationPageMVC/Dockerfile
+  
+  educationpagedb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+  educationpagewebapi:
+    image: ${DOCKER_REGISTRY-}educationpagewebapi
+    build:
+      context: .
+      dockerfile: src/EducationPageWebAPI/Dockerfile
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
