@@ -1,5 +1,6 @@
 version: '3.4'
 
+
 services:
   educationpagemvc:
     environment:
@@ -18,8 +19,8 @@ services:
   educationpagedb:
     container_name: educationpagedb
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=EducationPageDB
     restart: always
     ports:

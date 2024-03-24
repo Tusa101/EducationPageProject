@@ -1,0 +1,27 @@
+﻿@model List<EducationPageWebAPI.Models.Article>
+<div>
+    <br />
+    <br />
+    <table class="table">
+        <tdead>
+            <tr>
+                <th>Article Id</th>
+                <th>Article Name</th>
+                <th>Annotation</th>
+                <th>Text</th>
+            </tr>
+        </tdead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ArticleId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Annotation</td>
+                    <td>@item.Text</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

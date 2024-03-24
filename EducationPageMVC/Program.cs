@@ -1,7 +1,12 @@
+using EducationPageMVC.Services;
+using EducationPageMVC.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<IArticleService, ArticleService>(c => c.BaseAddress = new Uri("https://localhost:5052/"));
 
 var app = builder.Build();
 

@@ -5,15 +5,17 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{56B24EB0-0B12-43A3-9369-98FD55ED17E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationPageWebAPI", "src\EducationPageWebAPI\EducationPageWebAPI.csproj", "{361AFB43-4778-4C56-ADDF-22E4D45B8D3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationPageWebAPI", "src\EducationPageWebAPI\EducationPageWebAPI.csproj", "{361AFB43-4778-4C56-ADDF-22E4D45B8D3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationPageMVC", "EducationPageMVC\EducationPageMVC.csproj", "{CFC5E108-D51B-4D93-A1E7-E0CADFDDAC12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationPageMVC", "EducationPageMVC\EducationPageMVC.csproj", "{CFC5E108-D51B-4D93-A1E7-E0CADFDDAC12}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FCC08D4B-50FB-4B36-A4DA-59BE4EB3E038}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Env", "Env", "{8D17670A-9C01-4A83-9F19-366D2945E006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgreSQLConfig", "PostgreSQLConfig\PostgreSQLConfig.csproj", "{5D32D196-B3E9-4EBD-955A-9C0A103ED228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreSQLDb", "PostgreSQLConfig\PostgreSQLDb.csproj", "{5D32D196-B3E9-4EBD-955A-9C0A103ED228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models\Models.csproj", "{7BD9A465-DD70-4914-8597-580FF36C6C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{5D32D196-B3E9-4EBD-955A-9C0A103ED228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D32D196-B3E9-4EBD-955A-9C0A103ED228}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D32D196-B3E9-4EBD-955A-9C0A103ED228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD9A465-DD70-4914-8597-580FF36C6C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD9A465-DD70-4914-8597-580FF36C6C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD9A465-DD70-4914-8597-580FF36C6C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD9A465-DD70-4914-8597-580FF36C6C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{361AFB43-4778-4C56-ADDF-22E4D45B8D3C} = {56B24EB0-0B12-43A3-9369-98FD55ED17E2}
 		{CFC5E108-D51B-4D93-A1E7-E0CADFDDAC12} = {56B24EB0-0B12-43A3-9369-98FD55ED17E2}
 		{5D32D196-B3E9-4EBD-955A-9C0A103ED228} = {8D17670A-9C01-4A83-9F19-366D2945E006}
+		{7BD9A465-DD70-4914-8597-580FF36C6C10} = {8D17670A-9C01-4A83-9F19-366D2945E006}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {837AB51D-8A7F-460F-BC63-FD59549C1EF3}

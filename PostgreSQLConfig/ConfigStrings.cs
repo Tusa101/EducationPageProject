@@ -11,5 +11,6 @@ namespace PostgreSQLConfig
         public const string DatabaseSettings = "DatabaseSettings";
         public const string ConnectionString = "Connection";
         public const string DefaultSchema = "DefaultSchema";
+        
     }
 }
