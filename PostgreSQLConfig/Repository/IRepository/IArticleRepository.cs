@@ -9,6 +9,6 @@ namespace PostgreSQLData.Repository.IRepository
 {
     public interface IArticleRepository : IRepository<Article>
     {
-        void Update(Article obj);
+        Task Update(Article obj);
     }
 }

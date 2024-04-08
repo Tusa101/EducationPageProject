@@ -11,8 +11,8 @@ namespace PostgreSQLData.Repository.IRepository
     {
         Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null, string? includeProperties = null);
         Task <T> GetAsync(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false);
-        void Add(T entity);
-        void Remove(T entity);
-        void RemoveRange(IEnumerable<T> entity);
+        Task Add(T entity);
+        Task Remove(T entity);
+        Task RemoveRange(IEnumerable<T> entity);
     }
 }

@@ -18,7 +18,7 @@ namespace PostgreSQLDb.Repository
             _db = db;
         }
 
-        public void Update(Article obj)
+        public async Task Update(Article obj)
         {
             _db.Articles.Update(obj);
         }

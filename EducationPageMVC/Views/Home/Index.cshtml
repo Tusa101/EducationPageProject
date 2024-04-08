@@ -3,6 +3,27 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="background_main_page">
+        <div class="base_main_page">
+            <div class="base_shadow_main_page">
+                <div class="title_container_main_page" style="display: flex; justify-content: center; align-items: center; ">
+                    <div class="title_base_main_page" style="transform: translateY(-50px);">
+                        <span class="title_text_main_page">Выбери свое wiki </span>
+                    </div>
+                </div>
+                <div class="themes_container_main_page" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    @for (int i = 0; i < 7; i++)
+                    {
+                        <div class="theme_base_main_page">
+                            <div class="theme_base_shadow_main_page">
+                                @i
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Index" asp-route-id="@i">GetArticles</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

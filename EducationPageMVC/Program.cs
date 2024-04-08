@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient<IArticleService, ArticleService>(c => c.BaseAddress = new Uri("https://localhost:5052/"));
+builder.Services.AddHttpClient<IThemeService, ThemeService>(c => c.BaseAddress = new Uri("https://localhost:5052/"));
 
 var app = builder.Build();
 

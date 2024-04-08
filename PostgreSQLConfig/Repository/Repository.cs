@@ -19,7 +19,7 @@ namespace PostgreSQLData.Repository
             _db = db;
             dbSet = _db.Set<T>();
         }
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
             dbSet.Add(entity);
         }
@@ -65,12 +65,12 @@ namespace PostgreSQLData.Repository
             return await query.ToListAsync();
         }
 
-        public void Remove(T entity)
+        public async Task Remove(T entity)
         {
             dbSet.Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entity)
+        public async Task RemoveRange(IEnumerable<T> entity)
         {
             dbSet.RemoveRange(entity);
         }

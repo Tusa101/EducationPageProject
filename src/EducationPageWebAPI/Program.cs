@@ -7,6 +7,7 @@ using PostgreSQLConfig.DbInitializer;
 using PostgreSQLData.Repository;
 using PostgreSQLData.Repository.IRepository;
 using PostgreSQLDb.Repository;
+using PostgreSQLDb.Repository.IRepository;
 using System.Threading;
 using System.Web.Http;
 
@@ -40,6 +41,7 @@ internal class Program
         builder.Services.AddScoped<IDbInitializer, DbInitializer>();
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+        builder.Services.AddScoped<IThemeRepository, ThemeRepository>();
 
         var app = builder.Build();
 

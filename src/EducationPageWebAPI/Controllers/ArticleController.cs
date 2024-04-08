@@ -65,7 +65,8 @@ namespace EducationPageWebAPI.Controllers
                 obj.Annotation = updatedArticle.Annotation;
                 obj.Name = updatedArticle.Name;
                 obj.Text = updatedArticle.Text;
-                _articleRepository.Update(obj);
+                obj.ThemeId = updatedArticle.ThemeId;
+                await _articleRepository.Update(obj);
                 await _unitOfWork.SaveChangesAsync();
                 return Ok();
             }
