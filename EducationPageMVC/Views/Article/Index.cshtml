@@ -1,27 +1,116 @@
-﻿@model List<EducationPageWebAPI.Models.Article>
-<div>
-    <br />
-    <br />
-    <table class="table">
-        <tdead>
-            <tr>
-                <th>Article Id</th>
-                <th>Article Name</th>
-                <th>Annotation</th>
-                <th>Text</th>
-            </tr>
-        </tdead>
-        <tbody>
-            @foreach (var item in Model)
+﻿@using EducationPageMVC.ViewModels
+@model EducationPageViewModel
+<div class="base_background">
+    <div class=widget_background>
+    </div>
+    <div class=title_base>
+        <div class=title_shadow>
+            <span class="title_text">Обучение</span>
+        </div>
+    </div>
+    <div class=article_area_base>
+        <div class=article_area_shadow>
+            <div style="padding-left: 20px; padding-right: 20px;">
+                <h1><strong>@Model.Articles[Model.CurrentArticleId - 1].Name</strong></h1>
+                <h2><em>@Model.Articles[Model.CurrentArticleId - 1].Annotation</em></h2>
+                <div style="overflow: auto; height: 470px;">
+                    <h3><p align="justify">@Model.Articles[Model.CurrentArticleId - 1].Text.Replace("\n", "<br/>")</p></h3>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="level_panel">
+        @foreach (var level in Model.Articles)
+        {
+            if (level.InThemePostionNumber == Model.CurrentArticleId)
             {
-                <tr>
-                    <td>@item.ArticleId</td>
-                    <td>@item.Name</td>
-                    <td>@item.Annotation</td>
-                    <td>@item.Text</td>
-                </tr>
+                <div class="level_button" style="scale: 1.1;">
+                    <div class=level_button_white_shadow>
+                        <div class=level_button_green_shadow>
+                            <div class=level_button_container_base>
+                                <div class="level_button_container">
+                                     <span class="level_number">@level.InThemePostionNumber</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+            else
+            {
+                <a class="nav-link level_button" style="scale: 0.9;" asp-area="" asp-controller="Article" asp-action="ChangeArticle"
+                   asp-route-inThemePostionNumber="@level.InThemePostionNumber"
+                   asp-route-themeId="@Model.CurrentThemeId">
+                    <div class=level_button_white_shadow>
+                        <div class=level_button_green_shadow>
+                            <div class=level_button_container_base>
+                                <div class="level_button_container">
+                                    <span class="level_number">@level.InThemePostionNumber</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                @* <div class="level_button" style="scale: 1;">
+                    
+                </div> *@
+            }
+            
+        }
+    </div>
+    <div class="tag_panel">
+        <div class="tag_base">
+            <div class="tag_base_grey_shadow">
+                <span class="tag_label">#акции</span>
+            </div>
+        </div>
+        <div class="tag_base" style="scale: 1.2;">
+            <div class="tag_base_grey_shadow">
+                <span class="tag_label">#фонды</span>
+            </div>
+        </div>
+        <div class="tag_base">
+            <div class="tag_base_grey_shadow">
+                <span class="tag_label">#медведи</span>
+            </div>
+        </div>
+        <div class="tag_base">
+            <div class="tag_base_grey_shadow">
+                <span class="tag_label">#облигации</span>
+            </div>
+        </div>
+    </div>
+    <div class=close_button_base>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </a>
+    </div>
+    <div class="themes_base">
+        <div class="themes_base_shadow">
+            <div class="themes_title_base">
+                <span class="themes_title_text">Темы</span>
+            </div>
+            <div class="theme_item_container">
+                @{int i = 0;}
+                @foreach (var theme in Model.Themes)
+                {
+                    <div class="theme_item">
+                        <span class="theme_item_text"><pre>@($"{theme.Name.PadRight(17, ' ')}")</pre></span>
+                        <div class="item" style="margin-right: 10px">
+                            <div class="checkbox-rect">
+                                <input type="checkbox" id="checkbox-rect{@i}" name="check" style="left: 200px;">
+                                <label for="checkbox-rect{@i}"></label>
+                            </div>
+                        </div>
+                    </div>
+                    {
+                        i++;
+                    }
+                }
+            </div>
+        </div>
+    </div>
 </div>
-

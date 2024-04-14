@@ -13,16 +13,18 @@ namespace Models.Models
         public Theme()
         {
         }
-        public Theme(string id, string name)
+        public Theme(string id, string name, string imagePath)
         {
             ThemeId = id;
             Name = name;
+            ImagePath = imagePath;
         }
 
         [Key]
         public string ThemeId { get; set; }
         [Required]
         public string Name { get; set; }
+        public string ImagePath { get; set; }
         //public byte[] Icon { get; set; } = null;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EducationPageWebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using PostgreSQLConfig;
 using PostgreSQLData.Repository;
 using PostgreSQLData.Repository.IRepository;
@@ -16,6 +17,12 @@ namespace PostgreSQLDb.Repository
         public ArticleRepository(EducationPageDbContext db) : base(db)
         {
             _db = db;
+        }
+
+        public async Task<IEnumerable<Article>> GetAllArticlesByThemeId(int themeId)
+        {
+            var query = _db.Articles.Where(a => a.ThemeId == themeId.ToString());
+            return await query.ToListAsync();
         }
 
         public async Task Update(Article obj)

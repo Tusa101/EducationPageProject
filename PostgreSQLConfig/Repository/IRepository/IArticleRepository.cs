@@ -10,5 +10,6 @@ namespace PostgreSQLData.Repository.IRepository
     public interface IArticleRepository : IRepository<Article>
     {
         Task Update(Article obj);
+        Task<IEnumerable<Article>> GetAllArticlesByThemeId(int themeId);
     }
 }

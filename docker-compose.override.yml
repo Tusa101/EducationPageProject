@@ -1,20 +1,27 @@
 version: '3.4'
-
+networks:
+    edpage-network:
+        name: edpage-Development
+        driver: bridge
 
 services:
   educationpagemvc:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=5001
+    networks:
+        - edpage-network
     ports:
-      - "8080"
+      - "5001:5001"
 
   educationpagewebapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=5002
+    networks:
+        - edpage-network
     ports:
-      - "8080"
+      - "5002:5002"
   
   educationpagedb:
     container_name: educationpagedb
@@ -23,18 +30,22 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=EducationPageDB
     restart: always
+    networks:
+        - edpage-network
     ports:
         - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadmin_edpage
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@amtuska.tech
       - PGADMIN_DEFAULT_PASSWORD=admin1234
     restart: always
+    networks:
+        - edpage-network
     ports:
-        - "5050:80"
+        - "5051:80"
     volumes:
       - pgadmin_data:/root/.pgadmin

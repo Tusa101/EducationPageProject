@@ -29,6 +29,13 @@ namespace EducationPageWebAPI.Controllers
             return objs.ToList();
         }
         [HttpGet]
+        [Route("GetAllArticlesByThemeId")]
+        public async Task<ActionResult<IEnumerable<Article>>> GetAllArticlesByThemeId(int themeId)
+        {
+            var objs = await _articleRepository.GetAllArticlesByThemeId(themeId);
+            return objs.ToList();
+        }
+        [HttpGet]
         [Route("GetArticle")]
         public async Task<ActionResult<Article>> GetArticle(string articleId)
         {

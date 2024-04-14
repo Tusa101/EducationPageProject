@@ -1,4 +1,5 @@
 using EducationPageMVC.Models;
+using EducationPageMVC.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,18 @@ namespace EducationPageMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IThemeService _themeService;
+        public HomeController(ILogger<HomeController> logger, IThemeService themeService)
         {
+            _themeService = themeService;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var themes = await _themeService.GetAllThemes();
+            var result = themes.OrderBy(t => t.ThemeId).ToList();
+            return View(result);
         }
 
         public IActionResult Privacy()

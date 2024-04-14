@@ -6,5 +6,6 @@ namespace EducationPageMVC.Services.Interfaces
     public interface IThemeService
     {
         Task<Theme> GetTheme();
+        Task<IEnumerable<Theme>> GetAllThemes();
     }
 }
