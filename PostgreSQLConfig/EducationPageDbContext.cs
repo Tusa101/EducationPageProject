@@ -37,7 +37,9 @@ namespace PostgreSQLConfig
                             "This article is very interesting, testing. This article is very interesting, testing.\n" +
                             "This article is very interesting, testing. This article is very interesting, testing.")
                 );
-            
+            modelBuilder.Entity<Tag>().HasData(
+                new Tag(value:"акции")
+                );
         }
     }
 }
