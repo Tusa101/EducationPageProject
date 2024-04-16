@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddHttpClient<IArticleService, ArticleService>(c => c.BaseAddress = new Uri("http://host.docker.internal:5002"));
-builder.Services.AddHttpClient<IThemeService, ThemeService>(c => c.BaseAddress = new Uri("http://host.docker.internal:5002"));
+builder.Services.AddHttpClient<IArticleService, ArticleService>(c => c.BaseAddress = new Uri("http://educationpagewebapi:5002"));
+builder.Services.AddHttpClient<IThemeService, ThemeService>(c => c.BaseAddress = new Uri("http://educationpagewebapi:5002"));
 
 var app = builder.Build();
 
