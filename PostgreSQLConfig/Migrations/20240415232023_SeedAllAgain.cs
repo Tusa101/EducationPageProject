@@ -13,21 +13,21 @@ namespace PostgreSQLDb.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Articles",
-                columns: table => new
-                {
-                    ArticleId = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    InThemePostionNumber = table.Column<int>(type: "integer", nullable: false),
-                    ThemeId = table.Column<string>(type: "text", nullable: false),
-                    Annotation = table.Column<string>(type: "text", nullable: false),
-                    Text = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Articles", x => x.ArticleId);
-                });
+            //migrationBuilder.CreateTable(
+            //    name: "Articles",
+            //    columns: table => new
+            //    {
+            //        ArticleId = table.Column<string>(type: "text", nullable: false),
+            //        Name = table.Column<string>(type: "text", nullable: false),
+            //        InThemePostionNumber = table.Column<int>(type: "integer", nullable: false),
+            //        ThemeId = table.Column<string>(type: "text", nullable: false),
+            //        Annotation = table.Column<string>(type: "text", nullable: false),
+            //        Text = table.Column<string>(type: "text", nullable: false)
+            //    },
+            //    constraints: table =>
+            //    {
+            //        table.PrimaryKey("PK_Articles", x => x.ArticleId);
+            //    });
 
             migrationBuilder.CreateTable(
                 name: "Tags",
@@ -88,8 +88,8 @@ namespace PostgreSQLDb.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Articles");
+            //migrationBuilder.DropTable(
+            //    name: "Articles");
 
             migrationBuilder.DropTable(
                 name: "Tags");
