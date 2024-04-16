@@ -43,6 +43,13 @@ namespace EducationPageWebAPI.Controllers
             var themeWithArticles = await _themeRepository.GetThemeWithArticles(themeId);
             return themeWithArticles.ToList();
         }
+        [HttpGet]
+        [Route("GetThemeTags")]
+        public async Task<ActionResult<IEnumerable<Tags>>> GetThemeTags(string themeId)
+        {
+            var themeTags = await _themeRepository.GetThemeTags(themeId);
+            return themeTags.ToList();
+        }
 
         [HttpGet]
         [Route("GetTheme")]

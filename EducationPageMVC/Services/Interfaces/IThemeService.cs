@@ -7,5 +7,6 @@ namespace EducationPageMVC.Services.Interfaces
     {
         Task<Theme> GetTheme();
         Task<IEnumerable<Theme>> GetAllThemes();
+        Task<IEnumerable<Tags>> GetAllThemesTags(int themeId);
     }
 }

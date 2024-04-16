@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Models.Models
 {
-    public class Tag
+    public class Tags
     {
-        public Tag()
+        public Tags()
         {
             TagId = Guid.NewGuid().ToString();
         }
-        public Tag(string value)
+        public Tags(string tagId, string value)
         {
-            TagId = Guid.NewGuid().ToString();
+            TagId = tagId;
             Value = value;
         }
 

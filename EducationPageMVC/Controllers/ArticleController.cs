@@ -23,9 +23,11 @@ namespace EducationPageMVC.Controllers
             EducationPageViewModelProp = new EducationPageViewModel();
             EducationPageViewModelProp.CurrentThemeId = themeId;
             var articles = await _articleService.GetAllArticlesByThemeId(themeId);
+            var tags = await _themeService.GetAllThemesTags(themeId);
             var themes = await _themeService.GetAllThemes();
             EducationPageViewModelProp.Articles = [.. articles.OrderBy(o => o.InThemePostionNumber)];
             EducationPageViewModelProp.Themes = themes.ToList();
+            EducationPageViewModelProp.Tags = tags.Select(t=>t.Value).ToList();
             return View(EducationPageViewModelProp);
         }
 
@@ -37,8 +39,10 @@ namespace EducationPageMVC.Controllers
             EducationPageViewModelProp.CurrentThemeId = themeId;
             var articles = await _articleService.GetAllArticlesByThemeId(themeId);
             var themes = await _themeService.GetAllThemes();
+            var tags = await _themeService.GetAllThemesTags(themeId);
             EducationPageViewModelProp.Articles = [..articles.OrderBy(o => o.InThemePostionNumber)];
             EducationPageViewModelProp.Themes = themes.ToList();
+            EducationPageViewModelProp.Tags = tags.Select(t => t.Value).ToList();
             EducationPageViewModelProp.CurrentArticleId = inThemePostionNumber;
             return View("Index", EducationPageViewModelProp);
         }

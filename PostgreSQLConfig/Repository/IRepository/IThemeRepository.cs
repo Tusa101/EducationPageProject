@@ -14,5 +14,6 @@ namespace PostgreSQLDb.Repository.IRepository
         Task Update(Theme obj);
         Task<IEnumerable<object>> GetAllThemesWithArticles();
         Task<IEnumerable<object>> GetThemeWithArticles(string themeId);
+        Task<IEnumerable<Tags>> GetThemeTags(string themeId);
     }
 }

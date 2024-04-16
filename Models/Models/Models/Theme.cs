@@ -13,11 +13,12 @@ namespace Models.Models
         public Theme()
         {
         }
-        public Theme(string id, string name, string imagePath)
+        public Theme(string id, string name, string imagePath, List<string> tagsIds)
         {
             ThemeId = id;
             Name = name;
             ImagePath = imagePath;
+            TagsIds = tagsIds;
         }
 
         [Key]
@@ -25,6 +26,6 @@ namespace Models.Models
         [Required]
         public string Name { get; set; }
         public string ImagePath { get; set; }
-        //public List<string> Tags { get; set; }
+        public List<string> TagsIds { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using PostgreSQLConfig;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using System.Diagnostics;
 
 namespace PostgreSQLDb.Repository
 {
@@ -40,6 +41,14 @@ namespace PostgreSQLDb.Repository
                             ArticleText = a.Text
                         });
             return themesWithArticles;
+        }
+
+        public async Task<IEnumerable<Tags>> GetThemeTags(string themeId)
+        {
+            var theme = await _db.Themes.Where(t=>t.ThemeId == themeId).FirstOrDefaultAsync();
+            var tagsIds = theme.TagsIds;
+            var themeTags = await _db.Tags.Where(t => tagsIds.Contains(t.TagId)).ToListAsync();
+            return themeTags;
         }
 
         public async Task<IEnumerable<object>> GetThemeWithArticles(string themeId)

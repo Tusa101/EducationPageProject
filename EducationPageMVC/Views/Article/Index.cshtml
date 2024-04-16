@@ -60,26 +60,14 @@
         }
     </div>
     <div class="tag_panel">
-        <div class="tag_base">
-            <div class="tag_base_grey_shadow">
-                <span class="tag_label">#акции</span>
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="tag_base">
+                <div class="tag_base_grey_shadow">
+                    <span class="tag_label">#@tag</span>
+                </div>
             </div>
-        </div>
-        <div class="tag_base" style="scale: 1.2;">
-            <div class="tag_base_grey_shadow">
-                <span class="tag_label">#фонды</span>
-            </div>
-        </div>
-        <div class="tag_base">
-            <div class="tag_base_grey_shadow">
-                <span class="tag_label">#медведи</span>
-            </div>
-        </div>
-        <div class="tag_base">
-            <div class="tag_base_grey_shadow">
-                <span class="tag_label">#облигации</span>
-            </div>
-        </div>
+        }
     </div>
     <div class=close_button_base>
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
@@ -98,12 +86,13 @@
                 @foreach (var theme in Model.Themes)
                 {
                     <div class="theme_item">
-                        <span class="theme_item_text"><pre>@($"{theme.Name.PadRight(17, ' ')}")</pre></span>
-                        <div class="item" style="margin-right: 10px">
-                            <div class="checkbox-rect">
-                                <input type="checkbox" id="checkbox-rect{@i}" name="check" style="left: 200px;">
-                                <label for="checkbox-rect{@i}"></label>
-                            </div>
+                        <div class="item" style="margin-right: 10px;">
+                            <a class="nav-link" style=" display:flex; align-content:center; justify-content: center; direction:row;" asp-controller="Article" asp-action="Index" asp-route-themeId="@theme.ThemeId">
+                                <span class="theme_item_text"><pre>@($"{theme.Name.PadRight(15, ' ')}")</pre></span>
+                                <button>
+                                    <strong>Go</strong>
+                                </button>
+                            </a>
                         </div>
                     </div>
                     {
