@@ -14,7 +14,7 @@
                 <h1><strong>@Model.Articles[Model.CurrentArticleId - 1].Name</strong></h1>
                 <h2><em>@Model.Articles[Model.CurrentArticleId - 1].Annotation</em></h2>
                 <div style="overflow: auto; height: 470px;">
-                    <h3><p align="justify">@Model.Articles[Model.CurrentArticleId - 1].Text.Replace("\n", "<br/>")</p></h3>
+                    <p style="white-space:pre-line; font-size:23px; font-weight:450" align="justify">@Model.Articles[Model.CurrentArticleId - 1].Text.Replace("\\n", "")</p>
                 </div>
                 
             </div>
